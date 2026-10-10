@@ -26,6 +26,7 @@ namespace ReinfyTeam\libpf;
 
 use Exception;
 use function mb_strlen;
+use function preg_quote;
 use function preg_match;
 use function preg_replace;
 use function sizeof;
@@ -42,7 +43,7 @@ final class libpf {
 	public static function detectProfanity(string $message, array $words) : bool {
 		$filterCount = sizeof($words);
 		for ($i = 0; $i < $filterCount; $i++) {
-			$condition = preg_match("/" . $words[$i] . "/iu", $message) > 0;
+			$condition = preg_match("/" . preg_quote($words[$i], "/") . "/iu", $message) > 0;
 			if ($condition) {
 				return true;
 			}
@@ -61,7 +62,7 @@ final class libpf {
 			throw new Exception("Cannot replace character longer than 1 character.");
 		}
 		foreach ($words as $profanity) {
-			$message = self::replace("/" . $profanity . "/i", str_repeat($replacementCharacter, mb_strlen($profanity, "utf8")), $message);
+			$message = self::replace("/" . preg_quote($profanity, "/") . "/iu", str_repeat($replacementCharacter, mb_strlen($profanity, "utf8")), $message);
 		}
 		return $message;
 	}
