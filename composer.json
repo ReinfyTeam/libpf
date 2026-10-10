@@ -1,0 +1,17 @@
+{
+    "name": "reinfyteam/libpf",
+    "description": "Virion library for detecting and filtering profanity in PocketMine-MP chat messages.",
+    "type": "library",
+    "license": "LGPL-2.1-only",
+    "autoload": {
+        "psr-4": {
+            "ReinfyTeam\\libpf\\": "src/ReinfyTeam/libpf/"
+        }
+    },
+    "require-dev": {
+        "phpstan/phpstan": "^2.1"
+    },
+    "scripts": {
+        "analyse": "vendor/bin/phpstan analyse -c phpstan.neon.dist"
+    }
+}
