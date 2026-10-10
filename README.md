@@ -8,7 +8,7 @@ The library is intended to be included in a PocketMine-MP plugin or another comp
 
 - PHP 8.1 or newer for development and analysis.
 - A consumer that can package or load the Virion library.
-- The current `virion.yml` metadata lists Virion APIs `1.0.0` through `4.0.0`. Do not infer PocketMine-MP API 5 support from this library alone; verify the consuming plugin separately.
+- The current `virion.yml` metadata lists Virion APIs `1.0.0` through `5.0.0`. This library has no direct PocketMine-MP runtime dependency; verify the consuming plugin separately on its target API.
 
 ## Installation
 
